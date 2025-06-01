@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HousingLocation } from '../housinglocation';
 import { HousingService } from '../housing.service';
 @Component({
+  standalone:true,
   selector: 'app-home',
   imports: [CommonModule, HousingLocationComponent],
   templateUrl: './home.component.html',
@@ -24,12 +25,14 @@ export class HomeComponent {
 
     //con HTTP
     this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) =>{
+      console.log('Datos recibidos:', housingLocationList); 
       this.housingLocationList = housingLocationList;
       this.filteredLocationList = housingLocationList;
     })
   }
 
   filterResults(text:string) {
+     console.log('Texto a filtrar:', text);
     if(!text) {
       this.filteredLocationList = this.housingLocationList;
       return;
@@ -37,5 +40,11 @@ export class HomeComponent {
     this.filteredLocationList = this.housingLocationList.filter((housingLocation) =>
       housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     )
+     console.log('Resultados filtrados:', this.filteredLocationList);
   }
+
+  testClick() {
+  console.log('Click funcionando');
+}
+
 }
