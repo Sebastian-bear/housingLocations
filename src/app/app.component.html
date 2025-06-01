@@ -1,10 +1,13 @@
-<main class ="main">
-  <header class ="brand home">
-    <img class="brand-logo" src="assets/logo.svg" alt="logo">
-  </header>
-  <section classs class="content">
-    <app-home> </app-home>
+<main class="main">
+  <a routerLink="/">
+    <header class="brand-home">
+      <img class="brand-logo" src="assets/logo.svg" alt="logo" />
+    </header>
+  </a>
+  <section class="content">
+    <router-outlet></router-outlet>
   </section>
 </main>
 
-<router-outlet/>
+
+
